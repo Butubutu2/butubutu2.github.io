@@ -1,0 +1,1210 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/pag.png">
+  <link rel="icon" href="/img/pag.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zzh">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Mysql数据库基础 很基础的语法知识，真的很基础，等需要学到进阶一点再更新    –建表12345create table &#96;table_name&#96;(    &#96;fieid&#96; datatype,    &#96;fieid&#96; datatype,)character set collate engine  fieid：列名 datatype：列类型（字段类型） character set：字符集（不指定默认">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql基础">
+<meta property="og:url" content="http://example.com/2023/07/07/Mysql%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="箱庭">
+<meta property="og:description" content="Mysql数据库基础 很基础的语法知识，真的很基础，等需要学到进阶一点再更新    –建表12345create table &#96;table_name&#96;(    &#96;fieid&#96; datatype,    &#96;fieid&#96; datatype,)character set collate engine  fieid：列名 datatype：列类型（字段类型） character set：字符集（不指定默认">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/mysql/mysql_home.jpg">
+<meta property="article:published_time" content="2023-07-07T02:38:44.000Z">
+<meta property="article:modified_time" content="2023-07-07T03:01:33.014Z">
+<meta property="article:author" content="zzh">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/mysql/mysql_home.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Mysql基础 - 箱庭</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":75,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>子恒的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/mysql/mysql_home.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Mysql基础</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        zzh
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-07 10:38" pubdate>
+          2023年7月7日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          57 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Mysql基础</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：几秒前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Mysql数据库基础"><a href="#Mysql数据库基础" class="headerlink" title="Mysql数据库基础"></a>Mysql数据库基础</h1><blockquote>
+<p>很基础的语法知识，真的很基础，等需要学到进阶一点再更新</p>
+</blockquote>
+<br/>
+
+<h2 id="–建表"><a href="#–建表" class="headerlink" title="–建表"></a>–建表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create table `table_name`<br>(<br>    `fieid` datatype,<br>    `fieid` datatype,<br>)character set collate engine<br></code></pre></td></tr></table></figure>
+
+<p><strong>fieid</strong>：列名</p>
+<p><strong>datatype</strong>：列类型（字段类型）</p>
+<p><strong>character set</strong>：字符集（不指定默认为数据库类型）</p>
+<p><strong>collate</strong>：校对规则（不指定默认为数据库校对规则）</p>
+<p><strong>engine</strong>：引擎</p>
+<br/>
+
+<br/>
+
+<br/>
+
+<h2 id="–char与varchar"><a href="#–char与varchar" class="headerlink" title="–char与varchar"></a>–char与varchar</h2><ul>
+<li>char（n） n是固定字符数，不论是中文或是英文都存放n个固定字符数，就算没有达到n也会占用n个字符空间</li>
+<li>varchar（n） n是可变字符数，根据实际值占用相对应的空间，具体占用多少字节空间取决于编码格式（utf是2n，gdk是3n）</li>
+<li>varchar（n） 本身会占用1-3个字节空间用于记录存放字节的长度，因此实际可使用的字节空间要小于n</li>
+<li>char的查询速度比varchar要快</li>
+</ul>
+<br/>
+
+<br/>
+
+<br/>
+
+<h2 id="–基本函数"><a href="#–基本函数" class="headerlink" title="–基本函数"></a>–基本函数</h2><p>暂略</p>
+<br/>
+
+<br/>
+
+<h2 id="–表的操作"><a href="#–表的操作" class="headerlink" title="–表的操作"></a>–表的操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs mysql">--新增列<br>alter table `table_name`<br>      add `fieid` varchar(32) not null default ``--设置不允许为空，默认值为null<br>      after `fieid`<br><br>--显示表结构<br>desc `table_name`<br><br>--修改列的长度<br>alter table `table_name`<br>      modify `fieid` varchar(60) not null default ``<br><br>--删除列<br>alter table `table_name`<br>      drop `fieid`<br><br>--修改表名<br>rename table `table_name` to `newTable_name`<br><br>--修改表的字符集<br>alter table `table_name` character set utf-8<br><br>--修改列名<br>alter table `table_name`<br>      change `fieid` `newFieid` varchar(32) not null default ``<br></code></pre></td></tr></table></figure>
+
+<br/>
+
+<br/>
+
+<h2 id="–CRUD"><a href="#–CRUD" class="headerlink" title="–CRUD"></a>–CRUD</h2><p><strong>Create</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">insert into `table_name` (fieid , fieid ,fieid)<br>  values(`` , `` , ``),(`` , `` , `` )--此处顺序需要与列字段一致<br><br>--如果想指定列的某个字段默认值，在创建表的时候设置默认值即可<br></code></pre></td></tr></table></figure>
+
+<p><strong>Update</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">update `table_name` <br>  set `fieid` = xxx ，`fieid` = xxx<br>  where `fieid`= xxx--条件，修改哪一行，不写默认修改全部<br></code></pre></td></tr></table></figure>
+
+<p><strong>Delete</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">delete from `table_name`<br>  where `filed` = xxx<br></code></pre></td></tr></table></figure>
+
+<p><strong>Retrieve</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select (distinct) `fieid` , `fieid` from `table_name` --（distinct只有每个字段都相同才会去重）<br>  where `条件`                      <br><br>--使用运算和别名的方式查询<br>select `fieid` , (`fieid` + `fieid`) as `别名` from `table_name`<br><br>--排序<br>select `fieid` from `table_name`<br>  where `xxx`<br>    order by `fieid`（也可以使用别名） ase  --升序（默认）/ desc 降序<br><br>--统计和平均值<br>--count()不会统计为NULL的行<br>select sum(`fieid`) , avg(`fieid`) , count(`fieid`) from `table_name`<br><br>--最值<br>select max(`fieid`) , min(`fieid`) from `table_name`<br><br>--group by 与 having<br>--group by：对重复的元素转成一组<br>--having：对分组后的数据进行过滤，作用替代where<br>select avg(`fieid1`) as `avg_fieid1`, min(`fieid2`) , `fieid3` <br>  from `table_name` --处fieid3列在表中含有多个相同的元素<br>    group by `fieid3` having `avg_fieid1`&lt;2000 --使用别名效率高，避免重复使用计算平均数函数<br><br>--分页<br>--start：开始的数量，表从start+1开始取<br>--row：显示多少行<br>select... limit(start , row)<br>--每页展示n条数据，显示第m页 ：<br>select... limit(n*(m-1),n)<br><br>--语法顺序：分组-&gt;过滤-&gt;排序<br>select xxx from xxx<br>  group by xxx<br>    having xxx<br>      order by xxx desx<br>        limit xxx<br>  <br></code></pre></td></tr></table></figure>
+
+<br/>
+
+<p><strong>多表查询</strong></p>
+<blockquote>
+<p>user</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>depId</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>小明</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>小张</td>
+<td>20</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>dep</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>depId</th>
+<th>address</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10</td>
+<td>NewYork</td>
+</tr>
+<tr>
+<td>20</td>
+<td>China</td>
+</tr>
+</tbody></table>
+<br/>
+
+<p>两表联立查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from user , dep<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>user , dep</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>depId</th>
+<th>depId</th>
+<th>address</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>小明</td>
+<td>10</td>
+<td>10</td>
+<td>NewYork</td>
+</tr>
+<tr>
+<td>1</td>
+<td>小明</td>
+<td>10</td>
+<td>20</td>
+<td>China</td>
+</tr>
+<tr>
+<td>2</td>
+<td>小张</td>
+<td>20</td>
+<td>10</td>
+<td>NewYork</td>
+</tr>
+<tr>
+<td>2</td>
+<td>小张</td>
+<td>20</td>
+<td>20</td>
+<td>China</td>
+</tr>
+</tbody></table>
+<p>可见多表联立查询，是以笛卡尔积的方式组合在一起的，会有很多重复项</p>
+<p>因此我们可以根据where条件限定两表相同的内容（或者包含的内容）从而进行筛选（where限制条件不能少于表-1）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from user , dep where user.depId = dep.depId<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>user , dep</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>depId</th>
+<th>depId</th>
+<th>address</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>小明</td>
+<td>10</td>
+<td>10</td>
+<td>NewYork</td>
+</tr>
+<tr>
+<td>2</td>
+<td>小张</td>
+<td>20</td>
+<td>20</td>
+<td>China</td>
+</tr>
+</tbody></table>
+<p>因为两表都含有depId列，查询depId字段时需要指定说明查询哪个表的depId，尽管两表相同。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select `name` , `user.depId` ,`address` from user , dep where user.depId = dep.depId<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>depId</th>
+<th>address</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>小明</td>
+<td>10</td>
+<td>NewYork</td>
+</tr>
+<tr>
+<td>校长</td>
+<td>20</td>
+<td>China</td>
+</tr>
+</tbody></table>
+<br/>
+
+<p><strong>自连接</strong></p>
+<blockquote>
+<p>1.把一个表当作两个表来使用</p>
+<p>2.为了易读性，需要给表名取别名，同理列名也可以取别名</p>
+</blockquote>
+<br/>
+
+<blockquote>
+<p>user</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>bossId</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>jack</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>mike</td>
+<td>5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>smith</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>roly</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>king</td>
+<td>NULL</td>
+</tr>
+</tbody></table>
+<p>需求：列出每个员工的姓名以及上级姓名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select work.name as `职工` , boss.name as `老板`<br>  from user work , user boss<br>    where work.bossId = boss.id<br></code></pre></td></tr></table></figure>
+
+<p><strong>外连接</strong></p>
+<blockquote>
+<p>左外连接后依然会保留左边表的全部内容，没有相关联的内容为NULL</p>
+<p>右外连接后依然会保留右边表的全部内容，没有相关联的内容为NULL</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select xxx from<br>  `table1` left join `table2`<br>    on xxx --条件<br></code></pre></td></tr></table></figure>
+
+<p>同理右外连接为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select xxx from<br>  `table1` right join `table2`<br>    on xxx --条件<br></code></pre></td></tr></table></figure>
+
+<p><strong>子查询</strong></p>
+<blockquote>
+<p>嵌套使用select语句，包括单行子查询和多行子查询，多行子查询用in</p>
+<p>子查询的结果也可以当作临时表来使用</p>
+</blockquote>
+<br/>
+
+<blockquote>
+<p>user</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>depId</th>
+<th>sal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>jack</td>
+<td>2</td>
+<td>100</td>
+</tr>
+<tr>
+<td>2</td>
+<td>mike</td>
+<td>2</td>
+<td>150</td>
+</tr>
+<tr>
+<td>3</td>
+<td>lucy</td>
+<td>1</td>
+<td>400</td>
+</tr>
+<tr>
+<td>4</td>
+<td>smith</td>
+<td>3</td>
+<td>300</td>
+</tr>
+<tr>
+<td>5</td>
+<td>north</td>
+<td>4</td>
+<td>88</td>
+</tr>
+<tr>
+<td>6</td>
+<td>eric</td>
+<td>4</td>
+<td>50</td>
+</tr>
+<tr>
+<td>7</td>
+<td>a</td>
+<td>1</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>8</td>
+<td>b</td>
+<td>2</td>
+<td>99</td>
+</tr>
+<tr>
+<td>9</td>
+<td>c</td>
+<td>3</td>
+<td>299</td>
+</tr>
+<tr>
+<td>10</td>
+<td>d</td>
+<td>4</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<p>需求：列出与jack在同一部门的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from user<br>  where depId = (<br>    select depId <br>    from user<br>    where `name` = `jack`<br>  )<br></code></pre></td></tr></table></figure>
+
+<p>需求：列出比b工资高的同事</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs mysql">--方法一<br>select name from user<br>  where sal &gt; all(select sal from user<br>    where depId = 2)<br>    <br>--方法二<br>select name from user<br>  where sal &gt; (select max(sal) from user<br>    where depId = 2)<br>    <br>--可以看出，max操作的对象是列，而all或者any操作的对象是整个表<br></code></pre></td></tr></table></figure>
+
+<p>子查询当作临时表来使用：</p>
+<p>需求：列出每个部门中高于当前部门平均工资的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select name from user , (<br>    select depId , avg(sal) as avg_sal<br>    from user <br>    group by depId<br>  ) as temp<br>      where user.depId = temp.depId , user.sal &gt; temp.avg_sal<br></code></pre></td></tr></table></figure>
+
+<br/>
+
+<br/>
+
+<h2 id="–约束"><a href="#–约束" class="headerlink" title="–约束"></a>–约束</h2><br/>
+
+<h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><blockquote>
+<p>约束一个表中的唯一列，该列的关键字不能重复且不能为空</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs mysql">--方式一<br>create table `table1`(<br>  id int primary key,<br>  `name` varchar(32),<br>  email varchar(32),<br>)<br>--方式二<br>create table `table1`(<br>  id int,<br>  `name` varchar(32),<br>  email varchar(32),<br>  primary key(id)<br>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>一个表中只能拥有一个主键，但是可以用有复合主键</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create table `table1`(<br>  id int ,<br>  `name` varchar(32),<br>  email varchar(32),<br>  primary key(id , `name`) --复合主键<br>)<br></code></pre></td></tr></table></figure>
+
+<p>这种情况下，id与name组合成为了一个复合组件，只有当他们俩都相同的时候，才违反了主键不能重复的原则</p>
+<br/>
+
+<h3 id="unique"><a href="#unique" class="headerlink" title="unique"></a>unique</h3><blockquote>
+<p>约束该列的值唯一，不可以重复</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create table `table1`<br>  id int unique,<br>  `name` varchar(32),<br>  email varchar(32),<br>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>如果该列没有指定非空（NOT NULL），则可以允许多个NULL值</strong></p>
+<p><strong>一个表中可以允许多个unique存在</strong></p>
+<br/>
+
+<h3 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h3><blockquote>
+<p>约束两个表的直接联系，外键所在表和主表相绑定，从此无法轻易添加或删除</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs mysql">--主表<br>create table my_class(<br>  id int primary key,<br>  `name` varchar(32) not null default ` `);<br><br>--从表<br>create table my_stu(<br> id int primary key,<br> `name` varchar(32) not null default ` `,<br> classId int,<br> foreign key (classId) references my_class(id)--指定外键关系<br></code></pre></td></tr></table></figure>
+
+<p><strong>外键所指向主表的列必须为主键或者有unique约束，且数据类型必须一致</strong></p>
+<p><strong>表的类型必须为innodb才支持外键</strong></p>
+<p><strong>外键的值必须与所指向主表中列的值保持一致，但如果外键允许为空，则该外键也可以添加为NULL的字段。</strong></p>
+<br/>
+
+<h3 id="check"><a href="#check" class="headerlink" title="check"></a>check</h3><blockquote>
+<p>指定某个字段的范围，在MySQL中只做了语法校验，并没有生效（Mysql8以上除外）</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create table my_class(<br>  id int primary key,<br>  `sex` varchar(6) check(sex in(`man`,`woman`)));--sex只能是man/woman<br></code></pre></td></tr></table></figure>
+
+<br/>
+
+<h3 id="自增长"><a href="#自增长" class="headerlink" title="自增长"></a>自增长</h3><blockquote>
+<p>指定某一列自动增长，需要配合unique或者主键使用</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create table my_class(<br>  id int primary key auto_increment,<br>  `sex` varchar(6) check(sex in(`man`,`woman`)));--sex只能是man/woman<br><br>--修改自增长开始数<br>alter table my_class auto_increment = 10;<br></code></pre></td></tr></table></figure>
+
+<p><strong>一般情况下，我们在新增数据时，无需顾及到自增长的字段，它会自动增长，无需手动赋值</strong></p>
+<p><strong>但如果我们手动给自增长字段赋值，那么该字段的值不会自增长，成为你赋的值，同时下一个数据自增长从你赋的值开始（类似于走后门，同时不建议这么做）</strong></p>
+<br/>
+
+<br/>
+
+<h2 id="–索引"><a href="#–索引" class="headerlink" title="–索引"></a>–索引</h2><blockquote>
+<p>对列（字段）增加索引可以大幅度增加查询速度</p>
+<p>以空间换时间</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs mysql">--关键字：index ... on<br>create index `索引名字` on my_table(`字段`)<br><br>--查询表中的所有索引<br>show index from my_table<br>show keys from my_table<br><br>--删除索引<br>drop index `索引名` on my_table<br><br>--删除主键索引<br>alter table my_table drop primary key<br><br>--修改索引：需要先删除，再增加新的索引。<br></code></pre></td></tr></table></figure>
+
+<br/>
+
+<p><strong>为什么加了索引查询会快很多？</strong></p>
+<ul>
+<li><p>在不加索引的情况下：</p>
+<p>默认会对表中的所有数据进行扫描（遍历），即使查询的数据就在表的第一个也会继续向下查找，判断有没有重复相同的项目。因此不加索引是对表全盘扫描。</p>
+</li>
+<li><p>索引的原理是什么：</p>
+<p>实质是对表进行了一种数据结构的排序，比如二叉树，B+树等，这里以二叉树为例子。</p>
+<p>二叉树在表有顺序的情况下，拿取中间的数作为顶端数头，同时把数据分成两个部分，其余部分依次以二分法的方式拿取值，依次与树头进行比较。</p>
+<p>比数头小的放在左边，大的放在右边，一次堆叠成一棵树。</p>
+<p>这样查询时只需要和每一个树头的大小进行比较就可以快速定位至目标数。</p>
+<p>例如，找到id&#x3D;4只需要先比较5-&gt;2-&gt;3-&gt;4即可。</p>
+<p>因此加了索引，不是对表进行全盘扫描诶个读取，速度自然快很多。<img src="/img/mysql/23b88c3a4f567d045572606e0e6fabdf.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<br/>
+
+<p><strong>使用索引的代价是什么？</strong></p>
+<ol>
+<li>占用更大的储存空间。以800万的数据为例，不创建索引时，文件大小500MB左右，加了一个索引后，文件大小有637MB左右。是以牺牲空间来换取查询时间的。</li>
+<li>对增删改效率有影响。以上述二叉树为例，增删改会重新生成二叉树，对索引进行维护。</li>
+</ol>
+<br/>
+
+<p><strong>索引的分类：</strong></p>
+<ol>
+<li>主键索引，创建主键的时候即为主键索引。</li>
+<li>唯一索引，创建unique的时候为唯一索引。</li>
+<li>普通索引，手动index创建的，与上面的区别在于允许值重复。</li>
+<li>全文索引，fulltext关键字，mysql自带的不建议使用，一般开发使用全文搜索框架：Solr和ElasticSearch（ES）。</li>
+</ol>
+<br/>
+
+<br/>
+
+<h2 id="–事务"><a href="#–事务" class="headerlink" title="–事务"></a>–事务</h2><blockquote>
+<p>保证事务的一致性，要么全部成功，要么全部失败。情景：转账</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">start transaction --开始一个事务<br>set autocommit --同上，第二种写法<br>savepoint `保存点名`--设置保存点<br>rollback to `保存点名`--回退事务到保存点名<br>rollback --回退所有事务<br>commit --提交事务，所有操作生效，不能回退<br></code></pre></td></tr></table></figure>
+
+<p><strong>当回退到一个保存点后，该表存点之后的所有保存点都将失效。</strong></p>
+<p><strong>InnoDB引擎支持事务，MYISAM不支持事务。</strong></p>
+<br/>
+
+<p><strong>事务的acid特性</strong></p>
+<ul>
+<li><p><strong>原子性</strong></p>
+<p>指事务是一个不可分割的工作单位，事务中的操作要么全部发生，要么全部不发生。</p>
+</li>
+<li><p><strong>一致性</strong></p>
+<p>事务必须使数据库从一个一致性状态变换到另外一个一致性状态。</p>
+</li>
+<li><p><strong>隔离性</strong></p>
+<p>事务的隔离性是多个用户并发访问数据库时，数据库为每个用户开启的事务，不能被其他事务的操作数据所干扰，多个并发事务之间要相互隔离。</p>
+</li>
+<li><p><strong>持久性</strong></p>
+<p>指一个事务一旦被提交，他对数据库中数据的改变就是永久性的，接下来即使数据库发生故障也不应该对其有任何影响。</p>
+</li>
+</ul>
+<br/>
+
+<h3 id="事务的隔离"><a href="#事务的隔离" class="headerlink" title="事务的隔离"></a>事务的隔离</h3><blockquote>
+<p>在多链接的情况下，防止多个用户对同一个数据操作产生的差异，类似多线程</p>
+</blockquote>
+<br/>
+
+<ul>
+<li><p><strong>脏读：</strong></p>
+<p>  可以看到一方在未提交时改变的数据及为脏读。</p>
+</li>
+<li><p><strong>不可重复读：</strong></p>
+<p>  可以看到一方在未提交时对数据所做的更改和删除及为不可重复读。</p>
+</li>
+<li><p><strong>幻读：</strong></p>
+<p>  可以看到一方在未提交时新增的数据及为幻读。</p>
+</li>
+</ul>
+<br/>
+
+<p><strong>事务的隔离级别：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">Mysql隔离级别（4种）</th>
+<th align="center">脏读</th>
+<th align="center">不可重复读</th>
+<th align="center">幻读</th>
+<th align="center">加锁读</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">读未提交（Read uncommitted）</td>
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center">不加锁</td>
+</tr>
+<tr>
+<td align="center">读已提交（Read committed）</td>
+<td align="center">X</td>
+<td align="center">V</td>
+<td align="center">V</td>
+<td align="center">不加锁</td>
+</tr>
+<tr>
+<td align="center">可重复读（Repeatable read）</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">不加锁</td>
+</tr>
+<tr>
+<td align="center">可串行化（Serializable）</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">加锁</td>
+</tr>
+</tbody></table>
+<br/>
+
+<p><strong>语法：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">set session transaction isolation level --设置隔离级别<br><br>select @@transaction_isolation;--查看当前隔离级别<br></code></pre></td></tr></table></figure>
+
+<br/>
+
+<h2 id="–引擎"><a href="#–引擎" class="headerlink" title="–引擎"></a>–引擎</h2><ul>
+<li><p><strong>innodb</strong></p>
+<p>默认的引擎，支持事务，支持外键，支持行级锁</p>
+</li>
+<li><p><strong>myisam</strong></p>
+<p>添加速度快，不支持事务，不支持外键，支持表级锁</p>
+</li>
+<li><p><strong>memory</strong></p>
+<p>数据储存在内存中（关闭Mysql，数据丢失，表结构还存在），执行速度很快（内存中没有io读写），默认支持索引，基于哈希表，不支持事务，不支持外键</p>
+</li>
+</ul>
+<br/>
+
+<h2 id="–视图"><a href="#–视图" class="headerlink" title="–视图"></a>–视图</h2><blockquote>
+<p>选择一个表&#x2F;视图，可以控制该表展示哪些内容，类似权限控制</p>
+<p>视图是根据基本表来创建的，视图是一个虚拟的表，数据也来源于基表</p>
+<p>视图与基表之间是映射关系</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">create view `视图名` as select `字段` , `字段` , `字段` from `基表`<br><br>--删除视图<br>drop view `视图名`, `视图名`<br></code></pre></td></tr></table></figure>
+
+<p><strong>多表查询的结果可以用视图保存，方便下一次查询</strong></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Mysql基础</div>
+      <div>http://example.com/2023/07/07/Mysql基础/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zzh</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/06/Java%E5%9F%BA%E7%A1%80/" title="Java基础">
+                        <span class="hidden-mobile">Java基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

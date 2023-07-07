@@ -18,19 +18,19 @@
   <meta name="author" content="zzh">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Java基础 基于jdk8  —-static 可以直接调用，不需要类名（对象名）。  static修饰的方法中只能调用static修饰的变量（包括方法），而普通方法中可以调用所有的变量和方法。（遵守修饰符规定）  static修饰的变量和方法，随着类的加载而加载，因此在对象未实例化时也可直接调用。  static修饰的代码块只会执行一次。     —-类加载、构造器、执行顺序   静态加载：在编">
+    <meta name="description" content="Java基础 基于jdk8，学习后会更新  —-static 可以直接调用，不需要类名（对象名）。  static修饰的方法中只能调用static修饰的变量（包括方法），而普通方法中可以调用所有的变量和方法。（遵守修饰符规定）  static修饰的变量和方法，随着类的加载而加载，因此在对象未实例化时也可直接调用。  static修饰的代码块只会执行一次。     —-类加载、构造器、执行顺序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础">
-<meta property="og:url" content="http://example.com/2023/07/06/hello-my-hexo/index.html">
+<meta property="og:url" content="http://example.com/2023/07/06/Java%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="箱庭">
-<meta property="og:description" content="Java基础 基于jdk8  —-static 可以直接调用，不需要类名（对象名）。  static修饰的方法中只能调用static修饰的变量（包括方法），而普通方法中可以调用所有的变量和方法。（遵守修饰符规定）  static修饰的变量和方法，随着类的加载而加载，因此在对象未实例化时也可直接调用。  static修饰的代码块只会执行一次。     —-类加载、构造器、执行顺序   静态加载：在编">
+<meta property="og:description" content="Java基础 基于jdk8，学习后会更新  —-static 可以直接调用，不需要类名（对象名）。  static修饰的方法中只能调用static修饰的变量（包括方法），而普通方法中可以调用所有的变量和方法。（遵守修饰符规定）  static修饰的变量和方法，随着类的加载而加载，因此在对象未实例化时也可直接调用。  static修饰的代码块只会执行一次。     —-类加载、构造器、执行顺序">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/example.jpg">
+<meta property="og:image" content="http://example.com/img/java/java_home.jpg">
 <meta property="article:published_time" content="2023-07-06T06:25:14.000Z">
-<meta property="article:modified_time" content="2023-07-06T08:30:45.315Z">
+<meta property="article:modified_time" content="2023-07-07T02:52:28.165Z">
 <meta property="article:author" content="zzh">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/example.jpg">
+<meta name="twitter:image" content="http://example.com/img/java/java_home.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -196,7 +196,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/example.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/java/java_home.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -304,7 +304,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：4 小时前
+                    本文最后更新于：10 分钟前
                   
                 
               </p>
@@ -313,7 +313,7 @@
               <div class="markdown-body">
                 
                 <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><blockquote>
-<p>基于jdk8</p>
+<p>基于jdk8，学习后会更新</p>
 </blockquote>
 <h2 id="—-static"><a href="#—-static" class="headerlink" title="—-static"></a><strong>—-static</strong></h2><ul>
 <li><p>可以直接调用，不需要类名（对象名）。</p>
@@ -329,7 +329,7 @@
 
 <h2 id="—-类加载、构造器、执行顺序"><a href="#—-类加载、构造器、执行顺序" class="headerlink" title="—-类加载、构造器、执行顺序"></a><strong>—-类加载、构造器、执行顺序</strong></h2><br/>
 
-<p><img src="/img/2b6a7fae7706d956d62fc60bd0932ec2.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/java/2b6a7fae7706d956d62fc60bd0932ec2.png" srcset="/img/loading.gif" lazyload></p>
 <p>静态加载：在编译时就加载相关的类，依赖性强</p>
 <p>动态加载：运行时加载需要的类，不需要时不加载，降低依赖性</p>
 <br/>
@@ -430,7 +430,7 @@
 <p><strong>常量相加，看的是池，变量相加，看的是堆。</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abc&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> a + b;<br><span class="hljs-comment">//源码分析：在c这一步中：</span><br>StringBuilder sb=<span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>sb.apend(a);<br>sb.apend(b);<br><span class="hljs-type">String</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> sb.toString();<span class="hljs-comment">//toString()方法会在池中创建一个新的对象</span><br><span class="hljs-comment">//在堆中新建了一个value[]对象，由c指向它。</span><br><span class="hljs-comment">//在池中新建了一个对象，用于存放拼接好的字符串，由value[]对象指向它。</span><br></code></pre></td></tr></table></figure>
 
-<img src="/img/719d7e0c5ac64eb1cd5833aa4322d5ce.png" srcset="/img/loading.gif" lazyload alt="screen-capture" style="zoom:60%;" />
+<img src="/img/java/719d7e0c5ac64eb1cd5833aa4322d5ce.png" srcset="/img/loading.gif" lazyload alt="screen-capture" style="zoom:60%;" />
 
 <br/>
 
@@ -483,7 +483,7 @@
 
 <p>本质是一个数组链表（相邻表）。<strong>不可添加相同的数据</strong>，并且数据在表中排序与数据添加<strong>先后顺序无关</strong>，与该数据的Hash值有关，且输出顺序固定。</p>
 <p>添加：</p>
-<img src="/img/fc5d88bc104e9822e57e6334f41f439b.png" srcset="/img/loading.gif" lazyload alt="HashSet.png" style="zoom:80%;" />
+<img src="/img/java/fc5d88bc104e9822e57e6334f41f439b.png" srcset="/img/loading.gif" lazyload alt="HashSet.png" style="zoom:80%;" />
 
 <p>如上图Dog添加到表中，优先将Dog对象的hashCode根据算法算出Hash值，再根据Hash值匹配table序列，如果匹配到的序列中没有存放值，则直接添加到首位，否则继续一次匹配该序列中该对象和链表中的每一个值（此处调用equals）是否相同。</p>
 <ol>
@@ -544,7 +544,7 @@
 <h2 id="—-线程"><a href="#—-线程" class="headerlink" title="—-线程"></a>—-线程</h2><br/>
 
 <p>在一个线程start（）方法中，真正开启线程的并不是start（）方法里面的run（）方法，而是start0（），它是一个native本地方法，由JVM调用，底层是C&#x2F;C++实现的。</p>
-<p><img src="/img/5542f47236383d1b2f3524fa9427bff4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/java/5542f47236383d1b2f3524fa9427bff4.png" srcset="/img/loading.gif" lazyload></p>
 <br/>
 
 <br/>
@@ -679,7 +679,7 @@
 </blockquote>
 <br/>
 
-<h3 id="—JDBC的原理示意图"><a href="#—JDBC的原理示意图" class="headerlink" title="—JDBC的原理示意图"></a>—JDBC的原理示意图</h3><p><img src="/img/c38ab5aa61256011e6c0473b01a13928.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="—JDBC的原理示意图"><a href="#—JDBC的原理示意图" class="headerlink" title="—JDBC的原理示意图"></a>—JDBC的原理示意图</h3><p><img src="/img/java/c38ab5aa61256011e6c0473b01a13928.png" srcset="/img/loading.gif" lazyload></p>
 <br/>
 
 <h3 id="—JDBC程序编写步骤"><a href="#—JDBC程序编写步骤" class="headerlink" title="—JDBC程序编写步骤"></a>—JDBC程序编写步骤</h3><ol>
@@ -699,7 +699,7 @@
 
 <h3 id="—部分API"><a href="#—部分API" class="headerlink" title="—部分API"></a>—部分API</h3><br/>
 
-<p><img src="/img/77e5d258add9dbd3530994aac680206b.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/java/77e5d258add9dbd3530994aac680206b.png" srcset="/img/loading.gif" lazyload></p>
 <br/>
 
 <ul>
@@ -713,7 +713,7 @@
 <p>rowData -&gt; rows -&gt; elemetData（每行） -&gt; internalRowData（每列）</p>
 </li>
 </ul>
-<p><img src="/img/b9c45d5fb0fe8d4a6869b578cc1aa651.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/java/b9c45d5fb0fe8d4a6869b578cc1aa651.png" srcset="/img/loading.gif" lazyload></p>
 <br/>
 
 <ul>
@@ -746,8 +746,8 @@
 <p>parameterStrings：存放占位符的参数。</p>
 <p>因此批量处理的sql储存的范围为：</p>
 <p>preparedStatement -&gt; batchedArgs -&gt; elementData</p>
-<p><img src="/img/6923c6bd8b5ca60dff00076776647d31.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/d67d3e9c5ca7c15a0b7e655cc4b80e61.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/java/6923c6bd8b5ca60dff00076776647d31.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/java/d67d3e9c5ca7c15a0b7e655cc4b80e61.png" srcset="/img/loading.gif" lazyload></p>
 <br/>
 
 <h3 id="—JavaBean"><a href="#—JavaBean" class="headerlink" title="—JavaBean"></a>—JavaBean</h3><blockquote>
@@ -794,7 +794,7 @@
 <li>数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是重新建立一个。</li>
 <li>当应用程序向连接池请求的连接数超过最大连接数量时，这些请求将被加入到等待队列中。</li>
 </ol>
-<p><img src="/img/aca234ed3f28f8bc2977e6de9bda6c16.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/java/aca234ed3f28f8bc2977e6de9bda6c16.png" srcset="/img/loading.gif" lazyload></p>
 <p>Java官方为数据库连接池提供了接口：DataSource，第三方去实现。</p>
 <p><strong>几种常用数据库连接池：</strong></p>
 <ol>
@@ -821,7 +821,7 @@
 <p>有很多时候查询出来的结果需要多次使用，查询返回的ResultSet结果集是与connection相关的，一旦连接关闭，则结果集就无法使用。</p>
 <p>用户也不能一直持有connection，因此需要对查询得到的结果进行转存。</p>
 </blockquote>
-<p><img src="/img/a0c5c6aaf4bfe683afc0874250ec1984.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/java/a0c5c6aaf4bfe683afc0874250ec1984.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>核心思路：</strong>将得到的结果集中每行以一个对象的形式储存，最后将每行数据（对象）存在集合中，这样脱离出来了ResultSet，也脱离了connection。</p>
 <br/>
 
@@ -846,7 +846,7 @@
 <br/>
 
 <p>因此，我们可以对上述进行优化，将写sql的地方单独拿出来，如下图：</p>
-<p><img src="/img/401b85c552f4f1c10f96a39387f0dd27.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/java/401b85c552f4f1c10f96a39387f0dd27.png" srcset="/img/loading.gif" lazyload></p>
 <br/>
 
 <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><blockquote>
@@ -870,7 +870,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Java基础</div>
-      <div>http://example.com/2023/07/06/hello-my-hexo/</div>
+      <div>http://example.com/2023/07/06/Java基础/</div>
     </div>
     <div class="license-meta">
       
@@ -914,15 +914,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2023/07/07/Mysql%E5%9F%BA%E7%A1%80/" title="Mysql基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Mysql基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2023/07/06/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
