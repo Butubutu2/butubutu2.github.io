@@ -26,7 +26,7 @@
 <meta property="og:description" content="2024.3.4-星期一落实学习的第一天。   上午看了看行业内的几篇文章，提升一下学习的动力和兴趣。其中印象深刻的是一篇名为《最新 955 不加班的公司名单，几乎都是。。》的文章。文章讲述了为什么几年前计算机行业工资高以及计算机行业996的原因。以下内容来自原文：  在移动互联网的黄金时代刚刚到来的时候，从事其中的人们坚信，能够用移动互联网将生活中的方方面面全部重建一遍，他们，是影响社会进程的那">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-04T12:33:56.000Z">
-<meta property="article:modified_time" content="2024-03-07T13:00:25.290Z">
+<meta property="article:modified_time" content="2024-03-09T14:46:21.414Z">
 <meta property="article:author" content="zzh">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          4.3k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          30 分钟
+          36 分钟
         
       </span>
     
@@ -389,6 +389,21 @@
 <br/>
 
 <p>现在可以暂时给反射画上一个句号了。以目前的知识量来说确实很难理解注解与反射实际的作用，希望在后面框架学习中能给出答案。</p>
+<br/>
+
+<h2 id="2024-3-9-星期六"><a href="#2024-3-9-星期六" class="headerlink" title="2024-3-9-星期六"></a>2024-3-9-星期六</h2><p>昨天去看电影了，没有学习，今天把昨天的补上。 今天学习了<code>Java8</code>新特性：<code>lambda表达式</code>、方法引用、<code>Stream API</code>。</p>
+<br/>
+
+<p><code>lambda表达式</code>的本质是实现了函数式接口的实例，它以一种简洁的方式简化了代码，看起来不仅更加高大上，写起来也非常爽。以<code>() -&gt; &#123;&#125;</code>方式为主，左边为参数，右边为方法体。使用<code>lambda表达式</code>的前提是需要满足函数式接口——只声明了一个抽象方法的接口。<code>Java</code>也内置了很多函数式接口，他们都有<code>@FunctionInterface</code>注解标记，以<code>Consumer消费型</code>、<code>Supplier供给型</code>、<code>Function函数型</code>、<code>Predicate断定型</code>为核心。</p>
+<br/>
+
+<p>方法引用则在实现了<code>lambda表达式</code>的基础上，满足一定条件后可以进一步简洁的方式来实现。以<code>类/实例 :: 静态方法/非静态方法</code>的 格式呈现。它极大程度上减少了代码的冗余，但是在理解代码难度上拔高了要求。如果把某个对象的构造器看成方法，那么创建对象也可以使用方法引用的方式创建对象，如<code>BiFunction&lt;String, Float, Employee&gt; biFunction2 = Employee::new;</code>。根据函数式接口的种类以及参数的不同，实现使用不同构造器创建对象。</p>
+<br/>
+
+<p><code>Stream API</code>是<code>Java</code>对数据处理的一种补充，对集合数据进行操作，其过程类似于使用<code>SQL</code>执行的数据查询。使用它并不会改变原有的数据，它本身也并不会储存数据，而是返回了一个持有结果的全新<code>Stream</code>。使用<code>Stream</code>有三个步骤：创建-中间操作-终止操作。创建<code>Stream</code>流可以通过集合创建顺序流或并行流，前者在于顺序一致，后者优点在于处理大数据上有更高的效率；中间操作包括筛选切片映射排序等，往往与函数式接口配合方法引用实现对于数据的处理。终止操作是对流的终止，只有执行了中止操作，才会执行中间操作链，并且在这之后该<code>Stream</code>不会被再次使用。</p>
+<br/>
+
+<p>到此为止<code>Java</code>基础可以暂告截至。</p>
 
                 
               </div>
